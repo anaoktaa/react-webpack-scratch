@@ -1,0 +1,65 @@
+.header-styles, .header-styles-fold {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    padding-left: 280px;
+    background-color: #fafbfc;
+    box-sizing: border-box;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(8,10,37,.03), 0 0.9375rem 1.40625rem rgba(8,10,37,.03), 0 0.25rem 0.53125rem rgba(8,10,37,.05), 0 0.125rem 0.1875rem rgba(8,10,37,.03);
+}
+
+.header-styles {
+    padding: 0 20px 0 300px;
+}
+
+.header-styles-fold {
+    padding: 0 20px 0 100px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.fold-container {
+    height: 64px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-style {
+    margin-right: 6px;
+}
+
+.down-outline-avatar {
+    font-size: 10px;
+    margin-right: 20px;
+    color: #545cd8;
+}
+
+.user-profile-name {
+
+}
+
+.user-profile-name p {
+    margin: 0;
+    padding: 0;
+    line-height: 23px;
+}
+
+.avatar-name {
+    font-weight: bold;
+    color: #495057;
+}
+
+.avatar-position {
+    color: #868686;
+    font-weight: 400;
+}
+

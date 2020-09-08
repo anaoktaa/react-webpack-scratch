@@ -1,0 +1,20 @@
+.ant-menu-item-selected {
+    color: #545cd8;
+    font-weight: 700;  
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #e4f4ff;
+}
+
+.ant-menu-item:hover, .ant-menu-submenu-title:hover {
+    background-color: #f6fbff;
+}
+
+.ant-layout-sider-light .ant-layout-sider-trigger {
+    color: rgb(255 255 255);
+    background: #7f85e2;
+}
+.ant-layout-header {
+    padding: 0 20px;
+}

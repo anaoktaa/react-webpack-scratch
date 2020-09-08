@@ -1,15 +1,18 @@
 import React from 'react';
+import { Layout } from 'antd';
 
-import Card from './Card';
+import 'antd/dist/antd.less';
+import './ant-design.styles.css';
 
-import './App.css';
+import CustomDrawer from './components/custom-drawer/custom-drawer.component';
+import CustomHeader from './components/custom-header/custom-header.component';
 
 const App = () => (
   <div className='app'>
-    <Card/>
-    <div className='card'>
-      <h1 className='title'>Our React is working :)</h1>
-    </div>
+    <Layout style={{ minHeight: '100vh' }}>
+      <CustomDrawer />
+      <CustomHeader/>
+    </Layout>
   </div>
 );
 
