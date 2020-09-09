@@ -63,3 +63,124 @@
     font-weight: 400;
 }
 
+.right-tools-header {
+    margin-right: 15px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.active-user-avatar-header {
+    background-color: #e7f5ef;
+    color: #3ac47d;
+    cursor: pointer;
+}
+
+.lang-avatar-header {
+    background-color: #e7e7ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.notif-avatar-header {
+    background-color: #f6e6eb;
+    color: #e23b6f;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.bell-icon-header {
+    font-size: 18px;
+}
+
+.dashboard-avatar-header {
+    background-color: #e9ebf8;
+    color: #545cd8;
+    cursor: pointer;
+}
+
+.input-search-header-container {
+    margin-left: 20px;
+    position: relative;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.search-avatar-header {
+    position: absolute;
+    right: 0;
+    transform: rotate(-270deg);
+    transition: all .5s;
+}
+
+.search-rotate-avatar-header {
+    transform: rotate(360deg);
+}
+
+.input-search-hidden-header {
+    height: 42px;
+    width: 0;
+    background-color: #edeeef9e;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 2px 20px;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+
+.input-search-show-header {   
+    width: 280px;
+}
+
+.close-input-search-header {
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+    transition: all .5s;
+    transform: rotate(350deg);
+    cursor: pointer;
+}
+
+.close-input-search-header-show {
+    visibility: visible;
+    transform: translateX(290px) rotate(0deg);
+}
+
+.line-header {
+    height: 36px;
+    width: 1px;
+    background-color: #e4e4e4;
+    margin-right: 15px;
+}
+.menu-header {
+    margin-left: 20px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-header-hidden {
+    visibility: hidden;
+    transform: translateX(50px);
+}
+
+.menu-header p {
+    margin: 0;
+    color: #a5a5a5;
+}
+
+.menu-header p:hover {
+    color: #545cd8;
+    cursor: pointer;
+}
+
