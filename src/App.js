@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, Drawer } from 'antd';
 
 import 'antd/dist/antd.less';
 import './ant-design.styles.css';
@@ -10,8 +10,8 @@ import CustomHeader from './components/custom-header/custom-header.component';
 const App = () => (
   <div className='app'>
     <Layout style={{ minHeight: '100vh' }}>
-      <CustomDrawer />
-      <CustomHeader/>
+        <CustomDrawer/>
+        <CustomHeader/>
     </Layout>
   </div>
 );

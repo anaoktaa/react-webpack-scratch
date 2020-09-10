@@ -1,0 +1,86 @@
+.grid-user-profile {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    justify-items: center;
+}
+
+.user-profile-tools-container {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-avatar-header {
+    background-color: #e9ebf8;
+    color: #545cd8;
+    cursor: pointer;
+}
+
+.notif-avatar-header {
+    background-color: #f6e6eb;
+    color: #e23b6f;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.lang-avatar-header {
+    background-color: #e7e7ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.active-user-avatar-header {
+    background-color: #e7f5ef;
+    color: #3ac47d;
+    cursor: pointer;
+}
+
+.line-header {
+    height: 36px;
+    width: 1px;
+    background-color: #e4e4e4;
+}
+
+.avatar-style {
+    margin-right: 6px;
+}
+
+.down-outline-avatar {
+    font-size: 10px;
+    color: #545cd8;
+}
+
+.user-profile-name {
+    display: block;
+    margin-left: 20px;
+}
+
+.user-profile-name p {
+    margin: 0;
+    padding: 0;
+    line-height: 23px;
+}
+
+.avatar-name {
+    font-weight: bold;
+    color: #676767;
+}
+
+
+.avatar-position {
+    color: #868686;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+    .user-profile-name {
+        display: none;
+    }
+}
+

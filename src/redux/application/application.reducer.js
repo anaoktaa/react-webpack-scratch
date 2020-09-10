@@ -1,7 +1,8 @@
 import ApplicationTypes from './application.types';
 
 const INITIAL_STATE = {
-    foldDrawer: false
+    foldDrawer: true,
+    floatingHeaderTools: false
 }
 
 const application = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const application = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 foldDrawer: !state.foldDrawer
+            }
+        case ApplicationTypes.SET_FLOATING_HEADER_TOOLS:
+            return {
+                ...state,
+                floatingHeaderTools: !state.floatingHeaderTools
             }
         default:
             return state;

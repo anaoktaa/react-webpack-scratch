@@ -16,151 +16,27 @@
 .header-styles-fold {
     padding: 0 20px 0 100px;
 }
-.header-container {
+.header-container-desktop {
     display: flex;
     justify-content: space-between;
     height: 100%;
+}
+
+.header-search-menu-floating-container {
+    margin-right: 10px;
 }
 
 .fold-container {
     height: 64px;
     cursor: pointer;
     font-size: 20px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-}
-
-.avatar-style {
-    margin-right: 6px;
-}
-
-.down-outline-avatar {
-    font-size: 10px;
     margin-right: 20px;
-    color: #545cd8;
-}
-
-.user-profile-name {
-
-}
-
-.user-profile-name p {
-    margin: 0;
-    padding: 0;
-    line-height: 23px;
-}
-
-.avatar-name {
-    font-weight: bold;
-    color: #495057;
-}
-
-.avatar-position {
-    color: #868686;
-    font-weight: 400;
-}
-
-.right-tools-header {
-    margin-right: 15px;
-    width: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.active-user-avatar-header {
-    background-color: #e7f5ef;
-    color: #3ac47d;
-    cursor: pointer;
-}
-
-.lang-avatar-header {
-    background-color: #e7e7ea;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.notif-avatar-header {
-    background-color: #f6e6eb;
-    color: #e23b6f;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
 }
 
 .bell-icon-header {
     font-size: 18px;
 }
 
-.dashboard-avatar-header {
-    background-color: #e9ebf8;
-    color: #545cd8;
-    cursor: pointer;
-}
-
-.input-search-header-container {
-    margin-left: 20px;
-    position: relative;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    /* background-color: red; */
-}
-
-.search-avatar-header {
-    position: absolute;
-    right: 0;
-    transform: rotate(-270deg);
-    transition: all .5s;
-}
-
-.search-rotate-avatar-header {
-    transform: rotate(360deg);
-}
-
-.input-search-hidden-header {
-    height: 42px;
-    width: 0;
-    background-color: #edeeef9e;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    padding: 2px 20px;
-    box-sizing: border-box;
-    transition: all .5s;
-}
-
-.input-search-show-header {   
-    width: 280px;
-}
-
-.close-input-search-header {
-    position: absolute;
-    left: 0;
-    visibility: hidden;
-    transition: all .5s;
-    transform: rotate(350deg);
-    cursor: pointer;
-}
-
-.close-input-search-header-show {
-    visibility: visible;
-    transform: translateX(290px) rotate(0deg);
-}
-
-.line-header {
-    height: 36px;
-    width: 1px;
-    background-color: #e4e4e4;
-    margin-right: 15px;
-}
 .menu-header {
     margin-left: 20px;
     width: 180px;
@@ -176,7 +52,7 @@
 
 .menu-header p {
     margin: 0;
-    color: #a5a5a5;
+    color: #5f5f5f;
 }
 
 .menu-header p:hover {
@@ -184,3 +60,173 @@
     cursor: pointer;
 }
 
+.header-container-mobile-tablet {
+    display: none;
+}
+
+.logo-header-admin-dash {
+    width: 200px;
+    height: 100%;
+}
+
+.logo-header-admin-dash img {
+    margin-top: -5px;
+}
+
+.outer-more-container {
+    width: 20px;
+    height: 32px;
+    background-color: #545cd8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+/*Mega Menu CSS*/
+.mega-menu-container {
+    position: relative;
+}
+
+.mega-menu-popover-container {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #80808054;
+    padding: 20px 23px;
+    box-sizing: border-box;
+}
+.tooltip {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    z-index: 3000;
+    transform: rotate(45deg);
+    border-top: 1px solid #80808054;
+    border-left: 1px solid #80808054;
+}
+
+.mega-menu-grid {
+    display: grid;
+    align-content: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+
+.mega-menu-grid > div {
+    width: 230px;
+
+}
+
+.mega-menu-grid > div:not(:last-child) {
+    border-right: 1px solid #abababd9;
+}
+
+.mega-menu-icon {
+    font-size: 16px;
+    width: 30px;
+    text-align: left;
+}
+
+.mega-menu-content-wrap {
+    padding: 0;
+    margin: 0;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-mega-menu-header {
+    line-height: 37px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+/*Batas Mega Menu CSS*/
+
+@media screen and (max-width: 1024px) {
+    .down-outline-avatar {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-container-desktop {
+        display: none;
+    }
+
+    .header-container-mobile-tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .header-styles, .header-styles-fold {
+        padding: 0 20px;
+    }
+
+    .header-menu-floating {
+        position: fixed;
+        /* top: 80px; */
+        height: 70px;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        transition: all .3s;
+        transform: translateY(60px);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .header-menu-floating-show {
+        transform: translateY(80px);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header-menu-floating-container {
+        height: 60px;
+        width: 80%;
+        background-color: white;
+        border-radius: 30px;
+        box-shadow: 0 0.46875rem 2.1875rem rgba(8,10,37,.03), 0 0.9375rem 1.40625rem rgba(8,10,37,.03), 0 0.25rem 0.53125rem rgba(8,10,37,.05), 0 0.125rem 0.1875rem rgba(8,10,37,.03);
+        overflow-y: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .header-menu-floating-container::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .header-menu-floating-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-styles, .header-styles-fold {
+        padding: 0 20px;
+    }
+    .header-menu-floating-container {
+        padding: 0 10px;
+    }
+}

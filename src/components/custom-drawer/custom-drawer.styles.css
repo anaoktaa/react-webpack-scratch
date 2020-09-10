@@ -27,3 +27,22 @@
     z-index: 1200;
     padding-bottom: 100px;
 }
+
+.drawer-desktop-styles {
+    display: block;
+}
+
+.drawer-mobile-tablet-styles {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .drawer-desktop-styles {
+        display: none;
+    }
+
+    .drawer-mobile-tablet-styles {
+        display: block;
+    }
+}
+

@@ -1,35 +1,103 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Layout, Badge, Avatar } from 'antd';
+import { Layout } from 'antd';
 import { createStructuredSelector } from 'reselect';
 
-import { MenuUnfoldOutlined, DownOutlined, BellOutlined, SafetyOutlined,
-         AppstoreOutlined, SearchOutlined, MenuFoldOutlined, CloseOutlined,
-         GiftOutlined, SettingOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined, MenuFoldOutlined, GiftOutlined, SettingOutlined,
+         MenuOutlined, MoreOutlined, ContactsOutlined, ContainerOutlined,
+         PictureOutlined, DashboardOutlined } from '@ant-design/icons';
 
-import { setFoldDrawer } from '../../redux/application/application.actions';
-import { selectFoldDrawer } from '../../redux/application/application.selectors';
+import withWindowResize from '../with-window-resize/with-window-resize.component';
+import HeaderTools from '../header-tools/header-tools.component';
+import HeaderSearchInput from '../header-search-input/header-search-input.component';
+import { setFoldDrawer, setFloatingHeaderTools } from '../../redux/application/application.actions';
+import { selectFoldDrawer, selectFloatingHeaderTools } from '../../redux/application/application.selectors';
 
-import german from '../../assets/logo/german.png';
+import admindash from '../../assets/logo/admin-dash.png';
 import './custom-header.styles.css';
 import  '../../App.css';
 
 const { Header } = Layout;
 
-const CustomHeader = ({ setFoldDrawer, foldDrawer }) => {
+const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeaderTools, floatingHeaderTools }) => {
     const [ showInputSearch, setShowInputSearch ] = useState(false);
 
     const handleFoldDrawer = () => {
         setFoldDrawer();
+        if (foldDrawer && showInputSearch && (actualSize.width > 768 && actualSize.width <= 1024)) {
+            setShowInputSearch(false);
+        } 
     }
 
     const handleShowInputSearch = () => {
+        if (!foldDrawer && !showInputSearch && actualSize.width <= 1024 ) {
+            setFoldDrawer();
+        }
         setShowInputSearch(!showInputSearch);
     }
+
+    const handleHeaderToolsFloating = () => {
+        setFloatingHeaderTools();
+    }
+
+    const content = (
+        <div>
+            <div className='mega-menu-grid'>
+                <div>
+                    <p className='title-mega-menu-header'>Overview</p>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'><ContactsOutlined className='mega-menu-icon' />Contacts</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'><ContainerOutlined className='mega-menu-icon'/>Incidents</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'><PictureOutlined className='mega-menu-icon'/>Companies</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'><DashboardOutlined className='mega-menu-icon'/>Dashboard</a>
+                    </div>
+                </div>
+                <div>
+                    <p className='title-mega-menu-header'>Favourites</p>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Reports Conversions</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Quick Start</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Users & Groups</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Proprieties</a>
+                    </div>
+                </div>
+                <div>
+                    <p className='title-mega-menu-header'>Sales & Marketing</p>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Queues</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Resource Groups</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Goal Metrics</a>
+                    </div>
+                    <div className='mega-menu-content-wrap'>
+                        <a href='#'>Campaigns</a>
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+    );
+
     return (
         <Layout className="site-layout">
             <Header className={`${foldDrawer? 'header-styles-fold' : 'header-styles'}`}>
-                <div className='header-container'>
+                <div className='header-container-desktop'>
                     <div className='flex-start-center'>
                         <div className='fold-container'>
                             {
@@ -38,34 +106,46 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer }) => {
                                 <MenuFoldOutlined onClick={handleFoldDrawer} />
                             }
                         </div>
-                       <div className='input-search-header-container'>
-                            <CloseOutlined onClick={handleShowInputSearch} className={`close-input-search-header ${showInputSearch? 'close-input-search-header-show': ''}`}/>
-                            <input placeholder='Type to search' type='text' name='search' className={`${showInputSearch ? 'input-search-hidden-header input-search-show-header' : 'input-search-hidden-header'}`}/>
-                            <Avatar onClick={handleShowInputSearch} size={42} className={`dashboard-avatar-header ${showInputSearch? 'search-avatar-header search-rotate-avatar-header': 'search-avatar-header'}`} icon={<SearchOutlined />} />
-                       </div>
+                       <HeaderSearchInput
+                            showInputSearch={showInputSearch}
+                            handleShowInputSearch={handleShowInputSearch}
+                       />
                        <div className={`menu-header ${!showInputSearch? '' : 'menu-header-hidden'}`}>
-                           <p> <GiftOutlined /> Mega Menu</p>
-                           <p> <SettingOutlined /> Settings</p>
+                            <div className='mega-menu-container'>
+                                <p> <GiftOutlined /> Mega Menu</p>
+                                <div className='tooltip'>
+
+                                </div>
+                                <div className='mega-menu-popover-container'>
+                                    {content}
+                                </div>
+                            </div>
+                            <div className='mega-menu-container'>
+                                <p> <SettingOutlined /> Settings</p>
+                            </div>
+                                              
                        </div>
                     </div>
-                    <div className='user-profile'>
-                        <div className='right-tools-header'>
-                            <Avatar size={42} className='dashboard-avatar-header' icon={<AppstoreOutlined />} />
-                            <Badge dot style={{backgroundColor: '#d92550', position: 'absolute', top: '5px', right: '5px', width: '10px', height: '10px'}}>
-                                <Avatar size={42} className='notif-avatar-header' icon={<BellOutlined className='bell-icon-header'/>} />
-                            </Badge>
-                            <Avatar size={42} className='lang-avatar-header' icon={<img src={german} alt='lang' style={{width: '65%', height: '65%'}}/>} />
-                            <Avatar size={42} className='active-user-avatar-header' icon={<SafetyOutlined/>} />
-                        </div>
-                        <div className='line-header'/>
-                        <div className='flex-start-center cursor'>
-                            <Avatar className='avatar-style' size={45} src='https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=356&q=80' />
-                            <DownOutlined className='down-outline-avatar' />
-                        </div>
-                      
-                        <div className='user-profile-name'>
-                            <p className='avatar-name'>Alina Mclourd</p>
-                            <p className='avatar-position'>VP People Manager</p>
+                    <HeaderTools/>
+                </div>
+                <div className='header-container-mobile-tablet'>
+                    <MenuOutlined onClick={handleFoldDrawer} style={{fontSize: '22px'}} />
+                    <div className='logo-header-admin-dash'>
+                        <img src={admindash} alt='admin-dash-logo' width='100%' height='100%'/>
+                    </div>
+                    <div className='outer-more-container'>
+                        <MoreOutlined onClick={handleHeaderToolsFloating} style={{fontSize: '22px', color: 'white'}} />
+                    </div>
+
+                    <div className={`header-menu-floating ${floatingHeaderTools? 'header-menu-floating-show' : ''}`}>
+                        <div className='header-menu-floating-container'>
+                            <div className='header-search-menu-floating-container'>
+                                <HeaderSearchInput
+                                    showInputSearch={showInputSearch}
+                                    handleShowInputSearch={handleShowInputSearch}
+                                />
+                            </div>
+                            <HeaderTools/>
                         </div>
                     </div>
                 </div>
@@ -76,11 +156,13 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer }) => {
 };
 
 const mapStateToProps = createStructuredSelector ({
-    foldDrawer: selectFoldDrawer
+    foldDrawer: selectFoldDrawer,
+    floatingHeaderTools: selectFloatingHeaderTools
 });
 
 const mapDispatchToProps = dispatch => ({
-    setFoldDrawer: () => dispatch(setFoldDrawer())
+    setFoldDrawer: () => dispatch(setFoldDrawer()),
+    setFloatingHeaderTools: () => dispatch(setFloatingHeaderTools())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(withWindowResize(CustomHeader));

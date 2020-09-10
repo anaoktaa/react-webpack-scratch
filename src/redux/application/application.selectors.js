@@ -6,3 +6,7 @@ export const selectFoldDrawer = createSelector(
     [selectApp],
     app => app.foldDrawer
 );
+export const selectFloatingHeaderTools = createSelector(
+    [selectApp],
+    app => app.floatingHeaderTools
+);

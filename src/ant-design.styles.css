@@ -18,3 +18,12 @@
 .ant-layout-header {
     padding: 0 20px;
 }
+
+.ant-drawer-body {
+    flex-grow: 1;
+    padding: 0;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+}
