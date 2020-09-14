@@ -41,6 +41,7 @@ module.exports = {
                             'primary-color': '#545cd8',
                             'link-color': '#545cd8',
                             'border-radius-base': '2px',
+                            'error-color': '#d92550'
                         },
                         javascriptEnabled: true,
                         },

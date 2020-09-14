@@ -27,3 +27,7 @@
     line-height: 1.5715;
     word-wrap: break-word;
 }
+
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: 1px solid transparent;
+}

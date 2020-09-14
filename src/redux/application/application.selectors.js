@@ -10,3 +10,11 @@ export const selectFloatingHeaderTools = createSelector(
     [selectApp],
     app => app.floatingHeaderTools
 );
+export const selectMegaMenuToggle = createSelector(
+    [selectApp],
+    app => app.megaMenuToggle
+);
+export const selectSettingHeaderToggle = createSelector(
+    [selectApp],
+    app => app.settingHeaderToggle
+);

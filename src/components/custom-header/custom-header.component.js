@@ -4,14 +4,15 @@ import { Layout } from 'antd';
 import { createStructuredSelector } from 'reselect';
 
 import { MenuUnfoldOutlined, MenuFoldOutlined, GiftOutlined, SettingOutlined,
-         MenuOutlined, MoreOutlined, ContactsOutlined, ContainerOutlined,
-         PictureOutlined, DashboardOutlined } from '@ant-design/icons';
+         MenuOutlined, MoreOutlined } from '@ant-design/icons';
 
 import withWindowResize from '../with-window-resize/with-window-resize.component';
 import HeaderTools from '../header-tools/header-tools.component';
+import MegaMenu from '../mega-menu/mega-menu.component';
+import SettingHeaderCardComponent from '../setting-header-card/setting-header-card.component';
 import HeaderSearchInput from '../header-search-input/header-search-input.component';
-import { setFoldDrawer, setFloatingHeaderTools } from '../../redux/application/application.actions';
-import { selectFoldDrawer, selectFloatingHeaderTools } from '../../redux/application/application.selectors';
+import { setFoldDrawer, setFloatingHeaderTools, setMegaMenuToggle, setSettingHeaderToggle } from '../../redux/application/application.actions';
+import { selectFoldDrawer, selectFloatingHeaderTools, selectMegaMenuToggle, selectSettingHeaderToggle } from '../../redux/application/application.selectors';
 
 import admindash from '../../assets/logo/admin-dash.png';
 import './custom-header.styles.css';
@@ -19,7 +20,8 @@ import  '../../App.css';
 
 const { Header } = Layout;
 
-const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeaderTools, floatingHeaderTools }) => {
+const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeaderTools, floatingHeaderTools,
+    megaMenuToggle, setMegaMenuToggle, settingHeaderToggle, setSettingHeaderToggle }) => {
     const [ showInputSearch, setShowInputSearch ] = useState(false);
 
     const handleFoldDrawer = () => {
@@ -40,60 +42,14 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
         setFloatingHeaderTools();
     }
 
-    const content = (
-        <div>
-            <div className='mega-menu-grid'>
-                <div>
-                    <p className='title-mega-menu-header'>Overview</p>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'><ContactsOutlined className='mega-menu-icon' />Contacts</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'><ContainerOutlined className='mega-menu-icon'/>Incidents</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'><PictureOutlined className='mega-menu-icon'/>Companies</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'><DashboardOutlined className='mega-menu-icon'/>Dashboard</a>
-                    </div>
-                </div>
-                <div>
-                    <p className='title-mega-menu-header'>Favourites</p>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Reports Conversions</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Quick Start</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Users & Groups</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Proprieties</a>
-                    </div>
-                </div>
-                <div>
-                    <p className='title-mega-menu-header'>Sales & Marketing</p>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Queues</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Resource Groups</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Goal Metrics</a>
-                    </div>
-                    <div className='mega-menu-content-wrap'>
-                        <a href='#'>Campaigns</a>
-                    </div>
-                </div>
+    const handleToggleMegaMenu = () => {
+        setMegaMenuToggle();
+    }
 
-            </div>
-        
-        </div>
-    );
-
+    const handleToggleSettingMenu = () => {
+        setSettingHeaderToggle();
+    }
+    
     return (
         <Layout className="site-layout">
             <Header className={`${foldDrawer? 'header-styles-fold' : 'header-styles'}`}>
@@ -112,16 +68,16 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
                        />
                        <div className={`menu-header ${!showInputSearch? '' : 'menu-header-hidden'}`}>
                             <div className='mega-menu-container'>
-                                <p> <GiftOutlined /> Mega Menu</p>
-                                <div className='tooltip'>
-
-                                </div>
-                                <div className='mega-menu-popover-container'>
-                                    {content}
-                                </div>
+                                <a onClick={handleToggleMegaMenu}> <GiftOutlined /> Mega Menu</a>
+                                <MegaMenu
+                                    show={megaMenuToggle}
+                                />
                             </div>
                             <div className='mega-menu-container'>
-                                <p> <SettingOutlined /> Settings</p>
+                                <a onClick={handleToggleSettingMenu}> <SettingOutlined /> Settings</a>
+                                <SettingHeaderCardComponent
+                                    show={settingHeaderToggle}
+                                />
                             </div>
                                               
                        </div>
@@ -139,13 +95,15 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
 
                     <div className={`header-menu-floating ${floatingHeaderTools? 'header-menu-floating-show' : ''}`}>
                         <div className='header-menu-floating-container'>
+                           <div className='header-menu-floating-wrap'>
                             <div className='header-search-menu-floating-container'>
-                                <HeaderSearchInput
-                                    showInputSearch={showInputSearch}
-                                    handleShowInputSearch={handleShowInputSearch}
-                                />
-                            </div>
-                            <HeaderTools/>
+                                    <HeaderSearchInput
+                                        showInputSearch={showInputSearch}
+                                        handleShowInputSearch={handleShowInputSearch}
+                                    />
+                                </div>
+                                <HeaderTools/>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -157,12 +115,16 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
 
 const mapStateToProps = createStructuredSelector ({
     foldDrawer: selectFoldDrawer,
-    floatingHeaderTools: selectFloatingHeaderTools
+    floatingHeaderTools: selectFloatingHeaderTools,
+    megaMenuToggle: selectMegaMenuToggle,
+    settingHeaderToggle: selectSettingHeaderToggle
 });
 
 const mapDispatchToProps = dispatch => ({
     setFoldDrawer: () => dispatch(setFoldDrawer()),
-    setFloatingHeaderTools: () => dispatch(setFloatingHeaderTools())
+    setFloatingHeaderTools: () => dispatch(setFloatingHeaderTools()),
+    setMegaMenuToggle: () => dispatch(setMegaMenuToggle()),
+    setSettingHeaderToggle: () => dispatch(setSettingHeaderToggle())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withWindowResize(CustomHeader));

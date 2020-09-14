@@ -1,8 +1,8 @@
 .grid-user-profile {
     align-items: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 15px;
     justify-items: center;
 }
 

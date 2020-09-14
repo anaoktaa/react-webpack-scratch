@@ -1,0 +1,81 @@
+
+/*Mega Menu CSS*/
+.initial-mega-menu {
+    transition: all .5s;
+    transform: translateY(-100px);
+    position: absolute;
+}
+
+.hide-mega-menu {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show-mega-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-60px);
+}
+
+.mega-menu-popover-container {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #80808054;
+    padding: 20px 23px;
+    box-sizing: border-box;
+}
+.tooltip {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    z-index: 3000;
+    transform: rotate(45deg);
+    border-top: 1px solid #80808054;
+    border-left: 1px solid #80808054;
+}
+
+.mega-menu-grid {
+    display: grid;
+    align-content: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+
+.mega-menu-grid > div {
+    width: 230px;
+
+}
+
+.mega-menu-grid > div:not(:last-child) {
+    border-right: 1px solid #abababd9;
+}
+
+.mega-menu-icon {
+    font-size: 16px;
+    width: 30px;
+    text-align: left;
+}
+
+.mega-menu-content-wrap {
+    padding: 0;
+    margin: 0;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-mega-menu-header {
+    line-height: 37px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+/*Batas Mega Menu CSS*/
