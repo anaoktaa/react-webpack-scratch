@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Menu, Button } from 'antd';
+import { connect } from 'react-redux';
 
 import FloatingCard from '../floating-card/floating-card.component';
+import withClickOutside from '../with-click-outside/with-click-outside.component';
+import { setSettingHeaderToggle } from '../../redux/application/application.actions';
 
 import './setting-header-card.styles.css';
 
-const SettingHeaderCardComponent =  ({ show }) => {
+const SettingHeaderCardComponent =  ({ show, ...props }) => {
+    const ref = useRef(null);
     return (
-        <div>
+        <div ref={ref}>
             <FloatingCard
                 show={show}
                 headerContent={
@@ -17,9 +21,9 @@ const SettingHeaderCardComponent =  ({ show }) => {
                     </div>
                 }
                 imageBackground={'https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'}
-                overlayColor={'#37383699'}
+                overlayColor={'#84713399'}
                 bodyContent={
-                    <div>
+                    <div className='shc-body-container'>
                         <p className='shc-keyframes'>KEY FRAMES</p>
                         <Menu>
                             <Menu.Item>
@@ -35,7 +39,7 @@ const SettingHeaderCardComponent =  ({ show }) => {
                     </div>
                 }
                 footerContent={
-                    <div>
+                    <div className='shc-footer-container'>
                          <Button type="primary" danger>
                             Cancel
                         </Button>
@@ -46,4 +50,8 @@ const SettingHeaderCardComponent =  ({ show }) => {
     )
 };
 
-export default SettingHeaderCardComponent;
+const mapDispatchToProps = dispatch => ({
+    clickOutside: (val) => dispatch(setSettingHeaderToggle(val))
+})
+
+export default connect(null, mapDispatchToProps)(withClickOutside(SettingHeaderCardComponent));

@@ -1,0 +1,66 @@
+.ghc-header-container {
+    width: 380px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.ghc-overviewtitle {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffffd9;
+}
+
+.ghc-dropdown {
+    font-size: 15px;
+    margin: 0 0 5px;
+    padding: 0;
+    color: #ffffffd9;
+}
+
+.ghc-body-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ghc-body-content {
+    width: 100%;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    height: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.ghc-body-content:hover {
+    background: #dee2e6 radial-gradient(circle, transparent 1%, #dee2e6 1%) center/15000%;
+}
+
+.ghc-body-content:active {
+    background-color: #6c71c3;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.ghc-icon-grid {
+    font-size: 32px;
+    color: #737cb9;
+}
+
+.ghc-body-content p {
+    margin-top: 10px;
+    color: grey;
+}
+
+.ghc-footer-container {
+    padding: 10px 20px;
+    text-align: center;
+}

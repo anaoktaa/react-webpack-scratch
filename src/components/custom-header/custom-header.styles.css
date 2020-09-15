@@ -28,6 +28,8 @@
 
 .mega-menu-container {
     position: relative;
+    height: 100%;
+    line-height: 64px;
 }
 
 .fold-container {
@@ -35,6 +37,7 @@
     cursor: pointer;
     font-size: 20px;
     margin-right: 20px;
+    line-height: 64px;
 }
 
 .bell-icon-header {

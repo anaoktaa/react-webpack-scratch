@@ -43,11 +43,11 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
     }
 
     const handleToggleMegaMenu = () => {
-        setMegaMenuToggle();
+        setMegaMenuToggle(true);
     }
 
     const handleToggleSettingMenu = () => {
-        setSettingHeaderToggle();
+        setSettingHeaderToggle(true);
     }
     
     return (
@@ -123,8 +123,8 @@ const mapStateToProps = createStructuredSelector ({
 const mapDispatchToProps = dispatch => ({
     setFoldDrawer: () => dispatch(setFoldDrawer()),
     setFloatingHeaderTools: () => dispatch(setFloatingHeaderTools()),
-    setMegaMenuToggle: () => dispatch(setMegaMenuToggle()),
-    setSettingHeaderToggle: () => dispatch(setSettingHeaderToggle())
+    setMegaMenuToggle: (val) => dispatch(setMegaMenuToggle(val)),
+    setSettingHeaderToggle: (val) => dispatch(setSettingHeaderToggle(val))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withWindowResize(CustomHeader));

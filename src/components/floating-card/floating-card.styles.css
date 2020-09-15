@@ -13,14 +13,22 @@
 .floating-card-container {
     transition: all .5s;
     border-radius: 10px;
-    position: absolute;
-    top: 55px;
-    left: 0;
     box-sizing: border-box;
     background-color: white;
     overflow: hidden;
     box-shadow: 0 0.46875rem 2.1875rem rgba(8,10,37,.03), 0 0.9375rem 1.40625rem rgba(8,10,37,.03), 0 0.25rem 0.53125rem rgba(8,10,37,.05), 0 0.125rem 0.1875rem rgba(8,10,37,.03);
     border: 1px solid rgba(0,0,0,.15);
+}
+
+.floating-card-right {
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+.floating-card-left {
+    position: absolute;
+    top: 50px;
+    left: 0;
 }
 
 .floating-card-header {
@@ -33,7 +41,6 @@
 .floating-card-overlay-content{
     z-index: 10;
     position: relative;
-    padding: 15px 20px;
     line-height: 30px;
 }
 
@@ -53,12 +60,10 @@
 
 .floating-card-content {
     box-sizing: border-box;
-    padding: 15px 20px;
     line-height: 30px;
 }
 
 .floating-card-footer {
-    border-top: 1.9px solid #b7b7b7;
-    padding: 15px 20px;
+    /* border-top: 1.9px solid #b7b7b7; */
     line-height: 30px;
 }

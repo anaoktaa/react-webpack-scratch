@@ -18,3 +18,11 @@ export const selectSettingHeaderToggle = createSelector(
     [selectApp],
     app => app.settingHeaderToggle
 );
+export const selectGridDashboardToggle = createSelector(
+    [selectApp],
+    app => app.gridDashboardToggle
+);
+export const selectNotifHeaderToggle = createSelector(
+    [selectApp],
+    app => app.notifHeaderToggle
+);

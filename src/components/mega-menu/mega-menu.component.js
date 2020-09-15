@@ -1,12 +1,17 @@
-import React from 'react';
-import { ContactsOutlined, ContainerOutlined,
-    PictureOutlined, DashboardOutlined } from '@ant-design/icons';
+import React, { useRef } from 'react';
+import { ContactsOutlined, ContainerOutlined, PictureOutlined, DashboardOutlined } from '@ant-design/icons';
+import { connect } from 'react-redux';
+
+import { setMegaMenuToggle } from '../../redux/application/application.actions';
+import withClickOutside from '../with-click-outside/with-click-outside.component';
 
 import './mega-menu.styles.css';
 
-const MegaMenu = ({ show }) => {
+const MegaMenu = ({ show, ...props }) => {
+    const ref = useRef(null);
+
     return (        
-        <div className={`initial-mega-menu ${show? 'show-mega-menu' : 'hide-mega-menu'}`}>
+        <div ref={ref} className={`initial-mega-menu ${show? 'show-mega-menu' : 'hide-mega-menu'}`}>
              <div className='tooltip'/>
             <div className='mega-menu-popover-container'>
                 <div className='mega-menu-grid'>
@@ -61,5 +66,8 @@ const MegaMenu = ({ show }) => {
     )
 };
 
+const mapDispatchToProps = dispatch => ({
+    clickOutside: (val) => dispatch(setMegaMenuToggle(val))
+})
 
-export default MegaMenu;
+export default connect(null, mapDispatchToProps)(withClickOutside(MegaMenu));

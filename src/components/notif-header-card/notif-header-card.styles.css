@@ -1,0 +1,15 @@
+.ntc-header-container {
+    width: 320px;
+    display: block;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.ntc-body-container {
+    padding: 15px 20px;
+    box-sizing: border-box;
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
