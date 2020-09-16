@@ -13,6 +13,7 @@ const GridHeaderCard = ({ show, ...props }) => {
     return (
         <div ref={ref}>
             <FloatingCard
+                width={'300'}
                 show={show}
                 headerContent={
                     <div className='ghc-header-container'>

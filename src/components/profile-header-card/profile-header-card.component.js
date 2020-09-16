@@ -11,13 +11,16 @@ const ProfileHeaderCard = ({ show, ...props }) => {
     return (
         <div>
             <FloatingCard
+                width={'300'}
                 show={show}
                 headerContent={
                     <div className='phc-header-container'>
+                       <div className='flex-start-center'>
                         <Avatar className='avatar-style' size={42} src='https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=356&q=80' />
-                        <div className='phc-profile-container'>
-                            <p className='phc-name'>Alina Mclourd</p>
-                            <p className='phc-desc'>A short profile description</p>
+                            <div className='phc-profile-container'>
+                                <p className='phc-name'>Alina Mclourd</p>
+                                <p className='phc-desc'>A short profile description</p>
+                            </div>
                         </div>
                         <Button>Logout</Button>
                     </div>

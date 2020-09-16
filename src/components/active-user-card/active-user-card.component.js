@@ -14,6 +14,7 @@ const ActiveUserCard = ({ show, ...props }) => {
     return (
         <div>
             <FloatingCard
+                width={'300'}
                 show={show}
                 headerContent={
                     <div className='auc-header-container'>

@@ -12,6 +12,7 @@ const NotifHeaderCard = ({ show, ...props }) => {
     return (
         <div>
             <FloatingCard
+                width={'300'}
                 show={show}
                 position='right'
                 headerContent={

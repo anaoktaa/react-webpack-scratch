@@ -17,6 +17,7 @@ const LangHeaderCard = ({ show, ...props }) => {
     return (
         <div>
             <FloatingCard
+                width={'270'}
                 show={show}
                 headerContent={
                     <div className='lhc-header-container'>

@@ -1,5 +1,4 @@
 .ghc-header-container {
-    width: 380px;
     padding: 10px 15px;
     box-sizing: border-box;
     text-align: center;
@@ -29,7 +28,7 @@
     width: 100%;
     border-right: 1px solid #dee2e6;
     border-bottom: 1px solid #dee2e6;
-    height: 120px;
+    height: 100px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -51,7 +50,7 @@
 }
 
 .ghc-icon-grid {
-    font-size: 32px;
+    font-size: 26px;
     color: #737cb9;
 }
 
