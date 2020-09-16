@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     megaMenuToggle: false,
     settingHeaderToggle: false,
     gridDashboardToggle: false,
-    notifHeaderToggle: false
+    notifHeaderToggle: false,
+    langHeaderToggle: false
 }
 
 const application = (state = INITIAL_STATE, action) => {
@@ -40,6 +41,11 @@ const application = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 notifHeaderToggle: action.payload
+            }
+        case ApplicationTypes.SET_LANG_HEADER_TOGGLE:
+            return {
+                ...state,
+                langHeaderToggle: action.payload
             }
         default:
             return state;

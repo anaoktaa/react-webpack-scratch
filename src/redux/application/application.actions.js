@@ -22,7 +22,13 @@ export const setGridDashboardToggle = (data) => ({
     type: ApplicationTypes.SET_GRID_DASHBOARD_TOGGLE,
     payload: data
 });
+
 export const setNotifHeaderToggle = (data) => ({
     type: ApplicationTypes.SET_NOTIF_HEADER_TOGGLE,
+    payload: data
+});
+
+export const setLangHeaderToggle = (data) => ({
+    type: ApplicationTypes.SET_LANG_HEADER_TOGGLE,
     payload: data
 });

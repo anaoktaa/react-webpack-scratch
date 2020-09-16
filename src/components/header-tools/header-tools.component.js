@@ -7,31 +7,27 @@ import { DownOutlined, BellOutlined, SafetyOutlined, AppstoreOutlined } from '@a
 import german from '../../assets/logo/german.png';
 import GridHeaderCard from '../grid-header-card/grid-header-card.component';
 import NotifHeaderCard from '../notif-header-card/notif-header-card.component';
+import LangHeaderCard from '../lang-header-card/lang-header-card.component';
 
-import { setGridDashboardToggle, setNotifHeaderToggle } from '../../redux/application/application.actions';
-import { selectGridDashboardToggle, selectNotifHeaderToggle } from '../../redux/application/application.selectors';
+import { setGridDashboardToggle, setNotifHeaderToggle, setLangHeaderToggle } from '../../redux/application/application.actions';
+import { selectGridDashboardToggle, selectNotifHeaderToggle, selectLangHeaderToggle } from '../../redux/application/application.selectors';
 
 import './header-tools.styles.css';
 import '../../App.css';
 
-const HeaderTools = ({ setGridDashboardToggle, gridDashboardToggle, setNotifHeaderToggle, notifHeaderToggle }) => {
+const HeaderTools = ({ setGridDashboardToggle, gridDashboardToggle, setNotifHeaderToggle, notifHeaderToggle,
+                       setLangHeaderToggle, langHeaderToggle }) => {
 
     const handleGridDashboard = () => {
-        if (!gridDashboardToggle) {
-            setGridDashboardToggle(true);
-        }
-        else {
-            setGridDashboardToggle(false);
-        }
+        setGridDashboardToggle(true);
     }   
 
     const handleNotifToggle = () => {
-        if (!notifHeaderToggle) {
-            setNotifHeaderToggle(true);
-        }
-        else {
-            setNotifHeaderToggle(false);
-        }
+        setNotifHeaderToggle(true);
+    }
+
+    const handleLangToggle = () => {
+        setLangHeaderToggle(true);
     }
 
     return (
@@ -47,8 +43,9 @@ const HeaderTools = ({ setGridDashboardToggle, gridDashboardToggle, setNotifHead
                     </Badge>
                     <NotifHeaderCard show={notifHeaderToggle} clickOutside={() => setNotifHeaderToggle(false)}/>
                 </div>
-                <div className='relative' onClick={handleGridDashboard}>
+                <div className='relative' onClick={handleLangToggle}>
                     <Avatar size={42} className='lang-avatar-header' icon={<img src={german} alt='lang' style={{width: '65%', height: '65%'}}/>} />
+                    <LangHeaderCard show={langHeaderToggle} clickOutside={() =>  setLangHeaderToggle(false)}/>
                 </div>
                 <div className='relative' onClick={handleGridDashboard}>
                     <Avatar size={42} className='active-user-avatar-header' icon={<SafetyOutlined/>} />
@@ -69,12 +66,14 @@ const HeaderTools = ({ setGridDashboardToggle, gridDashboardToggle, setNotifHead
 
 const mapStateToProps = createStructuredSelector ({
     gridDashboardToggle : selectGridDashboardToggle,
-    notifHeaderToggle: selectNotifHeaderToggle
+    notifHeaderToggle: selectNotifHeaderToggle,
+    langHeaderToggle: selectLangHeaderToggle
 });
 
 const mapDispatchToProps = dispatch => ({
     setGridDashboardToggle: (val) => dispatch(setGridDashboardToggle(val)),
-    setNotifHeaderToggle: (val) => dispatch(setNotifHeaderToggle(val))
+    setNotifHeaderToggle: (val) => dispatch(setNotifHeaderToggle(val)),
+    setLangHeaderToggle: (val) => dispatch(setLangHeaderToggle(val))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderTools);

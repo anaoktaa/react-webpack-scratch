@@ -26,3 +26,7 @@ export const selectNotifHeaderToggle = createSelector(
     [selectApp],
     app => app.notifHeaderToggle
 );
+export const selectLangHeaderToggle = createSelector (
+    [selectApp],
+    app => app.langHeaderToggle
+);

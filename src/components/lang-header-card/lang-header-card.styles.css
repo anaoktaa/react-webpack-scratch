@@ -1,0 +1,47 @@
+.lhc-header-container {
+    padding: 20px 10px;
+    width: 270px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.lhc-body-container  {
+    padding: 20px 0;
+}
+
+.lhc-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #545cd8;
+    font-weight: 500;
+    margin: 0 0 4px 16px;
+    padding: 0;
+}
+
+.lhc-menu-item-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.lhc-menu-item-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.lhc-lang-img-container { 
+    width: 35px;
+    height: 23px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.lhc-lang-img-container img {
+    object-fit: cover;
+}
+
+.lhc-line {
+    margin-top: 6px;
+    border-top: 1px solid #80808047;
+}
