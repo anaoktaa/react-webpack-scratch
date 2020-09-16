@@ -1,0 +1,34 @@
+.auc-header-container {
+    width: 300px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.auc-body-container {
+    text-align: center;
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+
+.auc-user-icon {
+    font-size: 30px;
+}
+
+.auc-button {
+    background-color: #f7b924;
+    border: none;
+    color: black;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.auc-footer-container {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.auc-button:hover {
+    background-color: #f7b924c2;
+    color: black;
+}

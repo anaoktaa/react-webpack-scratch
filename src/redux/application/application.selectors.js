@@ -30,3 +30,11 @@ export const selectLangHeaderToggle = createSelector (
     [selectApp],
     app => app.langHeaderToggle
 );
+export const selectActiveUserHeaderToggle = createSelector(
+    [selectApp],
+    app => app.activeUserHeaderToggle
+);
+export const selectProfileHeaderToggle = createSelector(
+    [selectApp],
+    app => app.profileHeaderToggle
+);

@@ -7,7 +7,9 @@ const INITIAL_STATE = {
     settingHeaderToggle: false,
     gridDashboardToggle: false,
     notifHeaderToggle: false,
-    langHeaderToggle: false
+    langHeaderToggle: false,
+    activeUserHeaderToggle: false,
+    profileHeaderToggle: false
 }
 
 const application = (state = INITIAL_STATE, action) => {
@@ -46,6 +48,16 @@ const application = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 langHeaderToggle: action.payload
+            }
+        case ApplicationTypes.SET_ACTIVE_USER_HEADER_TOGGLE:
+            return {
+                ...state,
+                activeUserHeaderToggle: action.payload
+            }
+        case ApplicationTypes.SET_PROFILE_HEADER_TOGGLE:
+            return {
+                ...state,
+                profileHeaderToggle: action.payload
             }
         default:
             return state;

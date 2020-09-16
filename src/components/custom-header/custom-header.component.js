@@ -51,65 +51,62 @@ const CustomHeader = ({ setFoldDrawer, foldDrawer, actualSize, setFloatingHeader
     }
     
     return (
-        <Layout className="site-layout">
-            <Header className={`${foldDrawer? 'header-styles-fold' : 'header-styles'}`}>
-                <div className='header-container-desktop'>
-                    <div className='flex-start-center'>
-                        <div className='fold-container'>
-                            {
-                                foldDrawer?
-                                <MenuUnfoldOutlined onClick={handleFoldDrawer}/> :
-                                <MenuFoldOutlined onClick={handleFoldDrawer} />
-                            }
+        <Header className={`${foldDrawer? 'header-styles-fold' : 'header-styles'}`}>
+            <div className='header-container-desktop'>
+                <div className='flex-start-center'>
+                    <div className='fold-container'>
+                        {
+                            foldDrawer?
+                            <MenuUnfoldOutlined onClick={handleFoldDrawer}/> :
+                            <MenuFoldOutlined onClick={handleFoldDrawer} />
+                        }
+                    </div>
+                    <HeaderSearchInput
+                        showInputSearch={showInputSearch}
+                        handleShowInputSearch={handleShowInputSearch}
+                    />
+                    <div className={`menu-header ${!showInputSearch? '' : 'menu-header-hidden'}`}>
+                        <div className='mega-menu-container'>
+                            <a onClick={handleToggleMegaMenu}> <GiftOutlined /> Mega Menu</a>
+                            <MegaMenu
+                                show={megaMenuToggle}
+                            />
                         </div>
-                       <HeaderSearchInput
-                            showInputSearch={showInputSearch}
-                            handleShowInputSearch={handleShowInputSearch}
-                       />
-                       <div className={`menu-header ${!showInputSearch? '' : 'menu-header-hidden'}`}>
-                            <div className='mega-menu-container'>
-                                <a onClick={handleToggleMegaMenu}> <GiftOutlined /> Mega Menu</a>
-                                <MegaMenu
-                                    show={megaMenuToggle}
-                                />
-                            </div>
-                            <div className='mega-menu-container'>
-                                <a onClick={handleToggleSettingMenu}> <SettingOutlined /> Settings</a>
-                                <SettingHeaderCardComponent
-                                    show={settingHeaderToggle}
-                                />
-                            </div>
-                                              
-                       </div>
+                        <div className='mega-menu-container'>
+                            <a onClick={handleToggleSettingMenu}> <SettingOutlined /> Settings</a>
+                            <SettingHeaderCardComponent
+                                show={settingHeaderToggle}
+                            />
+                        </div>
+                                            
                     </div>
-                    <HeaderTools/>
                 </div>
-                <div className='header-container-mobile-tablet'>
-                    <MenuOutlined onClick={handleFoldDrawer} style={{fontSize: '22px'}} />
-                    <div className='logo-header-admin-dash'>
-                        <img src={admindash} alt='admin-dash-logo' width='100%' height='100%'/>
-                    </div>
-                    <div className='outer-more-container'>
-                        <MoreOutlined onClick={handleHeaderToolsFloating} style={{fontSize: '22px', color: 'white'}} />
-                    </div>
+                <HeaderTools/>
+            </div>
+            <div className='header-container-mobile-tablet'>
+                <MenuOutlined onClick={handleFoldDrawer} style={{fontSize: '22px'}} />
+                <div className='logo-header-admin-dash'>
+                    <img src={admindash} alt='admin-dash-logo' width='100%' height='100%'/>
+                </div>
+                <div className='outer-more-container'>
+                    <MoreOutlined onClick={handleHeaderToolsFloating} style={{fontSize: '22px', color: 'white'}} />
+                </div>
 
-                    <div className={`header-menu-floating ${floatingHeaderTools? 'header-menu-floating-show' : ''}`}>
-                        <div className='header-menu-floating-container'>
-                           <div className='header-menu-floating-wrap'>
-                            <div className='header-search-menu-floating-container'>
-                                    <HeaderSearchInput
-                                        showInputSearch={showInputSearch}
-                                        handleShowInputSearch={handleShowInputSearch}
-                                    />
-                                </div>
-                                <HeaderTools/>
-                           </div>
+                <div className={`header-menu-floating ${floatingHeaderTools? 'header-menu-floating-show' : ''}`}>
+                    <div className='header-menu-floating-container'>
+                        <div className='header-menu-floating-wrap'>
+                        <div className='header-search-menu-floating-container'>
+                                <HeaderSearchInput
+                                    showInputSearch={showInputSearch}
+                                    handleShowInputSearch={handleShowInputSearch}
+                                />
+                            </div>
+                            <HeaderTools/>
                         </div>
                     </div>
                 </div>
-            </Header>
-        </Layout>
-    
+            </div>
+        </Header>
     )
 };
 

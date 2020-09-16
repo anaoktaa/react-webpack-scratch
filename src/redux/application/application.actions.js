@@ -32,3 +32,13 @@ export const setLangHeaderToggle = (data) => ({
     type: ApplicationTypes.SET_LANG_HEADER_TOGGLE,
     payload: data
 });
+
+export const setActiveUserHeaderToggle = (data) => ({
+    type: ApplicationTypes.SET_ACTIVE_USER_HEADER_TOGGLE,
+    payload: data
+});
+
+export const setProfileHeaderToggle = (data) => ({
+    type: ApplicationTypes.SET_PROFILE_HEADER_TOGGLE,
+    payload: data
+});
